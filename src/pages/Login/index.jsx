@@ -11,19 +11,20 @@ export default function Login() {
   return (
     <div className="container-login">
       <div className="container-components">
-        <h1>Bem-vindo</h1>
-        <p>
-          Para acessar o controle de estoque da loja, faça seu login usando sua
-          conta Google.
-        </p>
-        <GoogleLogin
-          className="google"
-          clientId="490339351976-qgvjcr01u4u985vq653s9s73tkteu89q.apps.googleusercontent.com"
-          buttonText="Fazer login com o Gmail"
-          onSuccess={reponseGoogle}
-          onFailure={reponseGoogle}
-          cookiePolicy="single-host-origin"
-        />
+        <form>
+          <h1>Bem-vindo</h1>
+          <p>
+            Para acessar o controle de estoque da loja, faça seu login usando sua
+            conta Google.
+          </p>
+          <GoogleLogin
+            className="google"
+            clientId="490339351976-qgvjcr01u4u985vq653s9s73tkteu89q.apps.googleusercontent.com"
+            buttonText="Fazer login com o Gmail"
+            onSuccess={reponseGoogle}
+            onFailure={reponseGoogle}
+          />
+        </form>
       </div>
     </div>
   );
