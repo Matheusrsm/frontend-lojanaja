@@ -1,17 +1,17 @@
 import React, { Component } from "react";
+import './MenuSuperior.css';
 
 class MenuSuperior extends Component {
     render() {
         return (
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a href="/" classname="navbar-brand">Loja de Eletrônicos Naja</a>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav mr-auto">
-                    </ul>
-                </div>
+            <nav class="navbar navbar-dark">
+                <a class="navbar-brand" href="/">
+                    <img src="logo.png" width="30" height="30" class="d-inline-block align-top" alt=""/>
+                Loja de Eletrônicos Naja
+                </a>
+                <form class="form-inline">
+                <button type="button" class="btn btn-outline-light">Novo Produto</button>
+                </form>
             </nav>
         )
     }
