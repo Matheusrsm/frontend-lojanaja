@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import GoogleLogin from 'react-google-login';
 
+import logo from '../../assets/logo.png';
+
 import api from '../../include/api';
 import isLogged from '../../middlewares/auth';
 import './styles.css';
@@ -36,6 +38,7 @@ export default function Login() {
   return (
     <>
       <div className="container-login">
+        <img src={logo} alt="logo" className="logo" />
         <div className="container-components">
           <form>
             <h1>Bem-vindo</h1>

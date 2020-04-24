@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './MenuSuperior.css';
 
-import logo from './logo.png';
+import logo from '../../assets/logo.png';
 
 class MenuSuperior extends Component {
   render() {
