@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
 import Categorias from '../../components/Categorias/Categorias';
-import Produtos from '../../components/Produtos/Produtos';
 import MenuSuperior from '../../components/MenuSuperior/MenuSuperior';
+import ListaProdutos from '../../components/ListaProdutos/index';
 
 import './styles.css';
+import store from '../../store';
 import isLogged from '../../middlewares/auth';
 
-export default function Produto() {
+function Produto() {
   const history = useHistory();
 
   useEffect(() => {
@@ -21,9 +23,12 @@ export default function Produto() {
     <>
       <MenuSuperior />
       <div className="container">
-        <Categorias />
-        <Produtos categoria="tvs" />
+        <Provider store={store}>
+          <Categorias />
+          <ListaProdutos />
+        </Provider>
       </div>
     </>
   );
 }
+export default Produto;

@@ -1,15 +1,18 @@
 import React from 'react';
 import './Categorias.css';
-import Produtos from '../Produtos/Produtos'
 
-export default function Categorias() {
+import { connect } from 'react-redux';
+import actionsProdutos from '../../store/actions';
 
+function Categorias({ dispatch }) {
   return (
     <div id="divCategorias" className="list-group">
-      <button onClick={Produtos('tvs')} type="button" className="list-group-item list-group-item-action">TVs</button>
-      <button type="button" className="list-group-item list-group-item-action">Eletrodomésticos</button>
-      <button type="button" className="list-group-item list-group-item-action">Videogames</button>
-      <button type="button" className="list-group-item list-group-item-action">Celulares</button>
+      <button onClick={() => dispatch(actionsProdutos('tv'))} type="button" className="list-group-item list-group-item-action">TVs</button>
+      <button onClick={() => dispatch(actionsProdutos('eletrodomesticos'))} type="button" className="list-group-item list-group-item-action">Eletrodomésticos</button>
+      <button onClick={() => dispatch(actionsProdutos('videogame'))} type="button" className="list-group-item list-group-item-action">Videogames</button>
+      <button onClick={() => dispatch(actionsProdutos('celular'))} type="button" className="list-group-item list-group-item-action">Celulares</button>
     </div>
   );
 }
+
+export default connect((state) => ({ produtos: state }))(Categorias);
