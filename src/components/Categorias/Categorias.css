@@ -1,8 +1,20 @@
 .list-group {
-    margin-right: 75%;
+    margin-right: 10%;
     margin-top: 1%;
 }
 
-h5 {
-    margin-left: 6%;
+#tv {
+    background-color: palegreen ;    
+}
+
+#eletro {
+    background-color: palegreen ;    
+}
+
+#videogame {
+    background-color: palegreen ;    
+}
+
+#celular {
+    background-color: palegreen ;    
 }

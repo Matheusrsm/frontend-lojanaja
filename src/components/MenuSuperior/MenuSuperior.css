@@ -1,3 +1,10 @@
 .navbar {
-    background-color: darkolivegreen;
+    align-items: center;
+    background-color: seagreen;
+    margin: 0;
+    padding: 0;
+}
+
+#logo  {
+    height: 80px;
 }

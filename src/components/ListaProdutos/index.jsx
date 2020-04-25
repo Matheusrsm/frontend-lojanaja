@@ -1,14 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import './styles.css';
+import Cards from '../Cards/index';
+import logo from '../../assets/logo.png';
 
 function ListaProdutos({ produtos }) {
   return (
-    <>
-      <ul>
-        {produtos.map((item) => (<li>{item}</li>))}
-      </ul>
-    </>
+    <div>{produtos.map((item) => (<Cards foto={logo} nomeProduto={item} />))}</div>
+    
   );
 }
 
