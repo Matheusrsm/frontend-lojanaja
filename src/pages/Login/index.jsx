@@ -18,7 +18,7 @@ export default function Login() {
   });
 
   const reponseGoogle = async (response) => {
-    const res = await api({
+    let res = await api({
       method: 'POST',
       url: 'login',
       headers: {
@@ -27,7 +27,19 @@ export default function Login() {
     });
 
     if (!res.data.token) {
-      return alert('Informe a chave de acesso');
+      const access_key = document.getElementById('chave-acesso').value;
+      if (!access_key) return alert('Informe a chave de acesso.');
+
+      res = await api({
+        method: 'POST',
+        url: 'login',
+        headers: {
+          authorization: response.accessToken,
+          access_key,
+        },
+      });
+
+      if (!res.data.token) return alert('Chave de acesso incorreta!');
     }
 
     localStorage.setItem('accessToken', res.data.token);
@@ -44,8 +56,10 @@ export default function Login() {
             <h1>Bem-vindo</h1>
             <p>
               Para acessar o controle de estoque da loja, faça seu login usando sua
-              conta Google.
+              conta Google. Caso seja o primeiro acesso informe a Chave de Acesso.
             </p>
+            <span>Chave de Acesso:</span>
+            <input type="password" id="chave-acesso" />
             <GoogleLogin
               className="google"
               clientId="490339351976-qgvjcr01u4u985vq653s9s73tkteu89q.apps.googleusercontent.com"
