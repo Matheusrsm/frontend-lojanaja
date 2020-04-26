@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import './styles.css';
+
 export default function Cards({ produto }) {
   const CardDiv = styled.div`
         width: 250px;
@@ -30,7 +32,22 @@ export default function Cards({ produto }) {
         align-items: center
   `;
 
+  function enableInput(id) {
+    const card = document.getElementById(id);
+    const btn = document.getElementById('edit-save');
+
+    if (card.hasAttribute('disabled')) {
+      card.removeAttribute('disabled');
+      btn.innerHTML = 'Salvar';
+      return null;
+    }
+    // salvar aleração na quantidade aqui
+    card.setAttribute('disabled', 'disabled');
+    btn.innerHTML = 'Editar';
+  }
+
   function returnCardColor() {
+    let qtd = produto.quantity;
     if (produto.quantity >= 10) {
       return (
         <CardDiv className="card">
@@ -42,11 +59,21 @@ export default function Cards({ produto }) {
           </p>
           <div className="container-quantidade">
             <p>Quantidade: </p>
-            <input id="quant" name="quant" className="text" size="1" type="text" value={produto.quantity} maxLength="5" />
-            <div data-app="product.quantity" id="quantidade">
-              <input type="button" id="plus" value="-" onClick={retira} />
-              <input type="button" id="minus" value="+" onClick={adiciona} />
-            </div>
+            <input
+              id={`quant-${produto.product_code}`}
+              name="quant"
+              className="quant"
+              size="1"
+              type="number"
+              defaultValue={qtd}
+              maxLength="5"
+              disabled="disabled"
+              onChange={(e) => qtd = e.target.value}
+              min="0"
+            />
+            <button id="edit-save" type="button" onClick={() => enableInput(`quant-${produto.product_code}`)}>
+              Editar
+            </button>
           </div>
         </CardDiv>
       );
@@ -61,11 +88,21 @@ export default function Cards({ produto }) {
           </p>
           <div className="container-quantidade">
             <p>Quantidade: </p>
-            <input id="quant" name="quant" className="text" size="1" type="text" value={produto.quantity} maxLength="5" />
-            <div data-app="product.quantity" id="quantidade">
-              <input type="button" id="plus" value="-" onClick={retira} />
-              <input type="button" id="minus" value="+" onClick={adiciona} />
-            </div>
+            <input
+              id={`quant-${produto.product_code}`}
+              name="quant"
+              className="quant"
+              size="1"
+              type="number"
+              defaultValue={qtd}
+              maxLength="5"
+              disabled="disabled"
+              onChange={(e) => qtd = e.target.value}
+              min="0"
+            />
+            <button id="edit-save" type="button" onClick={() => enableInput(`quant-${produto.product_code}`)}>
+              Editar
+            </button>
           </div>
         </CardDivVermelho>
       );
@@ -80,30 +117,24 @@ export default function Cards({ produto }) {
         </p>
         <div className="container-quantidade">
           <p>Quantidade: </p>
-          <input id="quant" name="quant" className="text" size="1" type="text" value={produto.quantity} maxLength="5" />
-          <div data-app="product.quantity" id="quantidade">
-            <input type="button" id="plus" value="-" onClick={retira} />
-            <input type="button" id="minus" value="+" onClick={adiciona} />
-          </div>
+          <input
+            id={`quant-${produto.product_code}`}
+            name="quant"
+            className="quant"
+            size="1"
+            type="number"
+            defaultValue={qtd}
+            maxLength="5"
+            disabled="disabled"
+            onChange={(e) => qtd = e.target.value}
+            min="0"
+          />
+          <button id="edit-save" type="button" onClick={() => enableInput(`quant-${produto.product_code}`)}>
+            Editar
+          </button>
         </div>
       </CardDivAmarelo>
     );
-  }
-
-  function adiciona() {
-    let value = parseInt(document.getElementById('quant').value);
-    value++;
-    document.getElementById('quant').value = value;
-  }
-
-  function retira() {
-    let value = parseInt(document.getElementById('quant').value);
-    value--;
-    if (value < 1) {
-      document.getElementById('quant').value = 1;
-    } else {
-      document.getElementById('quant').value = value;
-    }
   }
 
   return returnCardColor();

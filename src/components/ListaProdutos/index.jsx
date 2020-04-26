@@ -4,7 +4,16 @@ import Cards from '../Cards';
 
 function ListaProdutos({ produtos }) {
   return (
-    <div><ul>{produtos.map((item) => (<li><Cards produto={item} /></li>))}</ul></div>
+    <div>
+      <ul>
+        {produtos.map((item) => (
+          <li>
+            <Cards key={item.product_code} produto={item} />
+          </li>
+        ))}
+      </ul>
+
+    </div>
 
   );
 }
