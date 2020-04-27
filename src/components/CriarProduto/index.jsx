@@ -81,10 +81,10 @@ export default class CriarProduto extends Component {
             <div className="grid">
               <label for="productCategory">Categoria</label>
               <select name="productCategory" value={this.state.productCategory} onChange={this.manipulador}>
-                <option value="tvs">TVs</option>
-                <option value="eletrodomesticos">Eletrodomésticos</option>
-                <option value="videogames">Videogames</option>
-                <option value="celulares">Celulares</option>
+                <option value="tv">TVs</option>
+                <option value="eletrodomestico">Eletrodomésticos</option>
+                <option value="videogame">Videogames</option>
+                <option value="celular">Celulares</option>
               </select>
             </div>
             <div >
