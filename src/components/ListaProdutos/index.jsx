@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import { useRouteMatch, useLocation } from 'react-router-dom';
+
 import Cards from '../Cards';
 
 import api from '../../include/api';
 
 import './styles.css';
 
-function ListaProdutos({ category }) {
+function ListaProdutos() {
+  const match = useRouteMatch();
+  const location = useLocation();
+  const { category } = match.params;
+
   const [produtos, setProdutos] = useState([]);
 
   useEffect(() => {
@@ -19,13 +25,35 @@ function ListaProdutos({ category }) {
       }).then((res) => {
       setProdutos(res.data);
     });
-  }, []);
+  }, [location.pathname]);
+
+  async function deleteProduto(product_code) {
+    const token = localStorage.getItem('accessToken');
+
+    await api.delete(`product/${product_code}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    const new_produtos = produtos.filter((produto) => (produto.product_code !== product_code));
+    setProdutos(new_produtos);
+  }
 
   return (
     <div>
       <ul className="container-produtos">
         {produtos.map((item) => (
           <li>
+            <button
+              type="button"
+              className="deletar"
+              onClick={() => {
+                deleteProduto(item.product_code);
+              }}
+            >
+              Del
+            </button>
             <Cards key={item.product_code} produto={item} />
           </li>
         ))}
