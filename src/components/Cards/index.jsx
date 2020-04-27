@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import api from '../../include/api';
+
 import './styles.css';
 
 export default function Cards({ produto }) {
@@ -32,7 +34,7 @@ export default function Cards({ produto }) {
         align-items: center
   `;
 
-  function enableInput(id, btnid) {
+  async function enableInput(id, btnid, product_code) {
     const card = document.getElementById(id);
     const btn = document.getElementById(btnid);
 
@@ -42,16 +44,24 @@ export default function Cards({ produto }) {
       return null;
     }
     // salvar aleração na quantidade aqui
+    const token = localStorage.getItem('accessToken');
+    console.log(card.value);
+    await api.put(`product/${product_code}`, { quantity: card.value }, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     card.setAttribute('disabled', 'disabled');
     btn.innerHTML = 'Editar';
   }
 
   function returnCardColor() {
     let qtd = produto.quantity;
+
     if (produto.quantity >= 10) {
       return (
         <CardDiv className="card">
-          <img src={produto.image} alt="Produto" width="50%" />
+          <img src={produto.imageo} alt="Produto" width="50%" />
           <h1>{produto.name}</h1>
           <p className="price">
             R$
@@ -74,7 +84,7 @@ export default function Cards({ produto }) {
             <button
               id={`edit-save-${produto.product_code}`}
               type="button"
-              onClick={() => enableInput(`quant-${produto.product_code}`, `edit-save-${produto.product_code}`)}
+              onClick={() => enableInput(`quant-${produto.product_code}`, `edit-save-${produto.product_code}`, produto.product_code)}
             >
               Editar
             </button>
@@ -107,7 +117,7 @@ export default function Cards({ produto }) {
             <button
               id={`edit-save-${produto.product_code}`}
               type="button"
-              onClick={() => enableInput(`quant-${produto.product_code}`, `edit-save-${produto.product_code}`)}
+              onClick={() => enableInput(`quant-${produto.product_code}`, `edit-save-${produto.product_code}`, produto.product_code)}
             >
               Editar
             </button>
@@ -115,6 +125,7 @@ export default function Cards({ produto }) {
         </CardDivVermelho>
       );
     }
+
     return (
       <CardDivAmarelo className="card">
         <img src={produto.image} alt="Produto" width="50%" />
@@ -140,7 +151,7 @@ export default function Cards({ produto }) {
           <button
             id={`edit-save-${produto.product_code}`}
             type="button"
-            onClick={() => enableInput(`quant-${produto.product_code}`, `edit-save-${produto.product_code}`)}
+            onClick={() => enableInput(`quant-${produto.product_code}`, `edit-save-${produto.product_code}`, produto.product_code)}
           >
             Editar
           </button>

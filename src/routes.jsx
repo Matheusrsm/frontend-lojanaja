@@ -29,7 +29,8 @@ const Routes = () => (
     <Switch>
       <Route path="/" exact component={() => <Redirect to="/login" />} />
       <Route path="/login" component={Login} />
-      <PrivateRoute exact path="/product" component={Produto} />
+      <PrivateRoute exact path="/product" component={() => <Redirect to="/product/all" />} />
+      <PrivateRoute path="/product/:category" component={Produto} />
     </Switch>
   </BrowserRouter>
 );

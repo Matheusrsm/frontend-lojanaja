@@ -1,10 +1,26 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 import Cards from '../Cards';
+
+import api from '../../include/api';
 
 import './styles.css';
 
-function ListaProdutos({ produtos }) {
+function ListaProdutos({ category }) {
+  const [produtos, setProdutos] = useState([]);
+
+  useEffect(() => {
+    const token = localStorage.getItem('accessToken');
+
+    api.get(`product/${category}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }).then((res) => {
+      setProdutos(res.data);
+    });
+  }, []);
+
   return (
     <div>
       <ul className="container-produtos">
@@ -14,10 +30,9 @@ function ListaProdutos({ produtos }) {
           </li>
         ))}
       </ul>
-
     </div>
 
   );
 }
 
-export default connect((state) => ({ produtos: state }))(ListaProdutos);
+export default ListaProdutos;

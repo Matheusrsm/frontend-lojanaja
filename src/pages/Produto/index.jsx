@@ -1,22 +1,22 @@
 import React from 'react';
-import { Provider } from 'react-redux';
+import { useRouteMatch } from 'react-router-dom';
 
 import Categorias from '../../components/Categorias/Categorias';
 import MenuSuperior from '../../components/MenuSuperior/MenuSuperior';
 import ListaProdutos from '../../components/ListaProdutos/index';
 
 import './styles.css';
-import store from '../../store';
 
 function Produto() {
+  const match = useRouteMatch();
+  const { category } = match.params;
+
   return (
     <>
       <MenuSuperior />
       <div className="container">
-        <Provider store={store}>
-          <Categorias />
-          <ListaProdutos />
-        </Provider>
+        <Categorias />
+        <ListaProdutos category={category} />
       </div>
     </>
   );
