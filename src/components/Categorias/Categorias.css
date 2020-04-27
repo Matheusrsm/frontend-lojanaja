@@ -1,6 +1,11 @@
 .list-group {
-    margin-right: 10%;
-    margin-top: 1%;
+    justify-content: center;
+    padding: 10px;
+    width: 300px;
+    right: 0;
+    background-color: palegreen;
+    align-items: center;
+    justify-content: center;
 }
 
 #tv {
