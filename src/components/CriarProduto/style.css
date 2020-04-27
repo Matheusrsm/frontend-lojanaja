@@ -1,0 +1,120 @@
+#rightsidebar {
+    justify-content: center;
+    padding: 10px;
+    width: 300px;
+    right: 0;
+    background-color: var(--primario);
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #rightsidebar h2 {
+    width: 100%;
+    color: var(--claro);
+    text-align: center;
+  }
+  
+  
+  form.productForm div.grid {
+    display: grid;
+    width: 100%;
+  }
+  
+  
+  form.productForm label {
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--claro);
+    display: flex;
+    padding-top: 15px;
+  }
+  
+  form.productForm input {
+    font-weight: 700;
+    text-align: center;
+    font-size: 0.9em;
+    background-color: var(--verde-claro);
+    border: none;
+    height: 2.5em;
+    padding: 5px 10px;
+    padding-left: 35px;
+    border-radius: 10px;
+    margin: 5px;
+    background-position: 7px 7px; 
+    background-repeat: no-repeat;
+  }
+  
+  form.productForm input[type="file"] {
+    width: 95%;
+    font-weight: 500;
+    color: var(--cinza);
+  }
+  
+  
+  form.productForm input#name {
+    background-image: url('../../assets/info.svg');
+  }
+  
+  form.productForm input#price {
+    background-image: url('../../assets/money.svg');
+  }
+  
+  form.productForm input#quantity {
+    background-image: url('../../assets/cabinet.svg');
+  }
+  
+  form.productForm input#image {
+    background-image: url('../../assets/image.svg');
+  }
+  
+  form.productForm input:focus {
+    background-color: var(--claro);
+  }
+  
+  form.productForm select {
+    margin: 5px;
+    font-size: 0.9em;
+    padding: 10px 10px;
+    background-color: var(--verde-claro);
+    border: none;
+    border-radius: 10px;
+  }
+  
+  .split {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .split button {
+    width: 100%;
+    margin: 10px auto;
+    padding: 10px;
+  }
+  
+  #productImage {
+    display: none;
+  }
+  
+  h4.label {
+    padding-top: 15px;
+    color: var(--claro);
+    font-weight: 500;
+  }
+  
+  label.productImage {
+    text-align: center;
+    height: 2.4em;
+    line-height: 1.7em;
+    background-color: var(--verde-claro);
+    margin: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: var(--cinza);
+    padding: 5px 10px;
+    padding-left: 60px; 
+    background-position: 7px 9px; 
+    background-repeat: no-repeat;
+    background-image: url('../../assets/image.svg');
+  }

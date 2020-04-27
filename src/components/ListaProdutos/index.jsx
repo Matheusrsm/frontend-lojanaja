@@ -25,6 +25,7 @@ function ListaProdutos() {
       }).then((res) => {
       setProdutos(res.data);
     });
+    // eslint-disable-next-line
   }, [location.pathname]);
 
   async function deleteProduto(product_code) {

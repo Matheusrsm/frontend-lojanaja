@@ -8,6 +8,7 @@ import isLogged from './middlewares/auth';
 
 import Login from './pages/Login';
 import Produto from './pages/Produto';
+import NovoProduto from './pages/NovoProduto';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const location = useLocation();
@@ -31,6 +32,7 @@ const Routes = () => (
       <Route path="/login" component={Login} />
       <PrivateRoute exact path="/product" component={() => <Redirect to="/product/all" />} />
       <PrivateRoute path="/product/:category" component={Produto} />
+      <PrivateRoute path="/newproduct" component={NovoProduto} />
     </Switch>
   </BrowserRouter>
 );
