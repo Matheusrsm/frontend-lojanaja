@@ -12,7 +12,11 @@ class MenuSuperior extends Component {
           <img id="logo" src={logo} alt="logo" />
         </Link>
         <Link to="/newProduct"> 
-          <button>Adicionar Produto</button>
+          <div id="botaoAddProduto" class="btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary active">
+            <input type="checkbox" checked autocomplete="off">Adicionar Produto</input>
+            </label>
+          </div>
         </Link>
       </nav>
     );
