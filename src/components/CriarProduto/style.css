@@ -1,3 +1,9 @@
+.container-novo-produto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #rightsidebar {
     justify-content: center;
     padding: 10px;

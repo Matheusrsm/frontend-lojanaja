@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+
+import api from '../../include/api'
+
 import './style.css'
 
 export default class CriarProduto extends Component {
@@ -32,7 +35,7 @@ export default class CriarProduto extends Component {
     manipulador = (evento) => {
         const name = evento.target.name;
         const value = evento.target.value;
-    
+        
         this.setState({
           product: {
             ...this.state.product,
@@ -42,25 +45,45 @@ export default class CriarProduto extends Component {
             }
           }
         });
-    
+        console.log(evento.target.files, evento.target.files[0])
+        
         try {
           this.setState({ fileName: evento.target.files[0].name })
         }
         catch {
     
         }
-        console.log(this.state.product);
     }
     
-    enviarManipulador = (event) => {
+    enviarManipulador = async (event) => {
         event.preventDefault();
-    
-        console.dir("Enviado");
-    
-        console.log(this.state.product);
+        
+        const token = localStorage.getItem('accessToken')
+
+        const formData = new FormData()
+        formData.append('file', this.state.product.productImage)
+        formData.append('product_code', this.state.product.productCode)
+        formData.append('name', this.state.product.productName)
+        formData.append('category', this.state.product.productCategory)
+        formData.append('price', this.state.product.productPrice)
+        formData.append('quantity', this.state.product.productQuantity)
+        
+        console.log(this.state.product.productImage)
+        
+        const prod = await api({
+            method: 'POST',
+            url: 'product',
+            headers: {
+                Authorization: `Bearer ${token}`
+            },
+            data: formData
+        })
+
+        console.dir(prod);
     }
     render() {
     return (
+        <div className='container-novo-produto'>
         <div id="rightsidebar">
           <h2>Novo Produto</h2>
           <hr className="claro"></hr>
@@ -101,6 +124,7 @@ export default class CriarProduto extends Component {
             </div>
           </form>
         </div >
+        </div>
     );
     }
 }
