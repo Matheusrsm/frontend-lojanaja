@@ -32,9 +32,9 @@ export default function Cards({ produto }) {
         align-items: center
   `;
 
-  function enableInput(id) {
+  function enableInput(id, btnid) {
     const card = document.getElementById(id);
-    const btn = document.getElementById('edit-save');
+    const btn = document.getElementById(btnid);
 
     if (card.hasAttribute('disabled')) {
       card.removeAttribute('disabled');
@@ -71,7 +71,11 @@ export default function Cards({ produto }) {
               onChange={(e) => qtd = e.target.value}
               min="0"
             />
-            <button id="edit-save" type="button" onClick={() => enableInput(`quant-${produto.product_code}`)}>
+            <button
+              id={`edit-save-${produto.product_code}`}
+              type="button"
+              onClick={() => enableInput(`quant-${produto.product_code}`, `edit-save-${produto.product_code}`)}
+            >
               Editar
             </button>
           </div>
@@ -100,7 +104,11 @@ export default function Cards({ produto }) {
               onChange={(e) => qtd = e.target.value}
               min="0"
             />
-            <button id="edit-save" type="button" onClick={() => enableInput(`quant-${produto.product_code}`)}>
+            <button
+              id={`edit-save-${produto.product_code}`}
+              type="button"
+              onClick={() => enableInput(`quant-${produto.product_code}`, `edit-save-${produto.product_code}`)}
+            >
               Editar
             </button>
           </div>
@@ -129,7 +137,11 @@ export default function Cards({ produto }) {
             onChange={(e) => qtd = e.target.value}
             min="0"
           />
-          <button id="edit-save" type="button" onClick={() => enableInput(`quant-${produto.product_code}`)}>
+          <button
+            id={`edit-save-${produto.product_code}`}
+            type="button"
+            onClick={() => enableInput(`quant-${produto.product_code}`, `edit-save-${produto.product_code}`)}
+          >
             Editar
           </button>
         </div>

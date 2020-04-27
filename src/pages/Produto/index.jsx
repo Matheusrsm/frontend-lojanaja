@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import React from 'react';
 import { Provider } from 'react-redux';
 
 import Categorias from '../../components/Categorias/Categorias';
@@ -8,17 +7,8 @@ import ListaProdutos from '../../components/ListaProdutos/index';
 
 import './styles.css';
 import store from '../../store';
-import isLogged from '../../middlewares/auth';
 
 function Produto() {
-  const history = useHistory();
-
-  useEffect(() => {
-    isLogged().then((res) => {
-      if (!res) history.push('/');
-    });
-  });
-
   return (
     <>
       <MenuSuperior />

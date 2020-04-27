@@ -12,9 +12,7 @@ export default function Login() {
   const history = useHistory();
 
   useEffect(() => {
-    isLogged().then((res) => {
-      if (res) history.push('/product');
-    });
+    if (isLogged()) history.push('/product');
   });
 
   const reponseGoogle = async (response) => {
