@@ -12,7 +12,7 @@ class MenuSuperior extends Component {
           <img id="logo" src={logo} alt="logo" />
         </Link>
         <Link to="/newProduct"> 
-          <button>Novo Produto</button>
+          <button>Adicionar Produto</button>
         </Link>
       </nav>
     );
