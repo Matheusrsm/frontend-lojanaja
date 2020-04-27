@@ -11,6 +11,9 @@ class MenuSuperior extends Component {
         <Link to="/product">
           <img id="logo" src={logo} alt="logo" />
         </Link>
+        <Link to="/newProduct"> 
+          <button>Novo Produto</button>
+        </Link>
       </nav>
     );
   }
