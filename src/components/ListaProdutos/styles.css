@@ -7,3 +7,7 @@
     grid-gap: 20px;
     list-style: none;
 }
+
+li {
+    align-items: center;
+}
