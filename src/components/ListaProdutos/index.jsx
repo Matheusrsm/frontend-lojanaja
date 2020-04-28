@@ -46,16 +46,17 @@ function ListaProdutos() {
       <ul className="container-produtos">
         {produtos.map((item) => (
           <li>
+            <Cards key={item.product_code} produto={item} />
             <button
+              id="botaoExcluir"
               type="button"
               className="deletar"
               onClick={() => {
                 deleteProduto(item.product_code);
               }}
             >
-              Del
+              Excluir
             </button>
-            <Cards key={item.product_code} produto={item} />
           </li>
         ))}
       </ul>

@@ -27,6 +27,7 @@
 }
 
 .container-novo-produto {
+    background-color: palegreen;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,6 +39,7 @@
     width: 300px;
     right: 0;
     border: black;
+    border-radius: 10px;
     align-items: center;
   }
   
@@ -82,17 +84,8 @@
     color: var(--cinza);
   }
   
-  
-  form.productForm input#name {
-    background-image: url('../../assets/info.svg');
-  }
-  
   form.productForm input#price {
     background-image: url('../../assets/money.svg');
-  }
-  
-  form.productForm input#quantity {
-    background-image: url('../../assets/cabinet.svg');
   }
   
   form.productForm input#image {

@@ -1,15 +1,8 @@
-body {
-    height: 100vh;
-    background-color: white;
-}
-
 #divCategorias {
-    background-color: palegreen;
-    justify-content: center;
-    height: 100%;
-    width: 300px;
-    align-items: center;
-    padding: 10px;
+   background-color: palegreen;
+   width: 200px;
+   align-items: center;
+   padding: 10px;
 }
 
 #tv {
