@@ -10,7 +10,7 @@ function Produto() {
   return (
     <>
       <MenuSuperior />
-      <div className="container">
+      <div id="paginaProduto" className="container">
         <Categorias />
         <ListaProdutos />
       </div>

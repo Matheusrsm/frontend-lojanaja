@@ -1,25 +1,28 @@
 .list-group {
     justify-content: center;
-    padding: 10px;
+    height: 100%;
     width: 300px;
     right: 0;
-    background-color: grey;
+    background-color: palegreen;
     align-items: center;
-    justify-content: center;
 }
 
 #tv {
-    background-color: palegreen ;    
+    text-align: center;
+    background-color: white ;    
 }
 
 #eletro {
-    background-color: palegreen ;    
+    text-align: center;
+    background-color: white ;    
 }
 
 #videogame {
-    background-color: palegreen ;    
+    text-align: center;
+    background-color: white ;    
 }
 
 #celular {
-    background-color: palegreen ;    
+    text-align: center;
+    background-color: white ;    
 }
