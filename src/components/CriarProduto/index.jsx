@@ -102,6 +102,7 @@ export default class CriarProduto extends Component {
 
         console.dir(prod);
     }
+    
     render() {
     return (
         <div className='container-novo-produto'>
@@ -124,7 +125,7 @@ export default class CriarProduto extends Component {
             </div>
             <div className="grid">
               <label for="productCategory">Categoria</label>
-              <select name="productCategory" value={this.state.productCategory} onChange={this.manipulador}>
+              <select id="selectcategorias" name="productCategory" value={this.state.productCategory} onChange={this.manipulador}>
                 <option value="tv">TVs</option>
                 <option value="eletrodomestico">Eletrodomésticos</option>
                 <option value="videogame">Videogames</option>
