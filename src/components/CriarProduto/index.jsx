@@ -134,7 +134,7 @@ export default class CriarProduto extends Component {
             </div>
             <div >
               <label for="productPrice">Preço</label>
-              <input id="price" type="number" name="productPrice" value={this.state.productPrice} onChange={this.manipulador} min="0" step="0.01">R$</input>
+              <input id="price" type="number" name="productPrice" value={this.state.productPrice} onChange={this.manipulador} min="0" step="0.01"></input>
             </div>
             <div >
               <label for="productQuantity">Quantidade</label>
