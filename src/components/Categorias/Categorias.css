@@ -1,9 +1,13 @@
-.list-group {
+body {
+    height: 100%;
+}
+
+#divCategorias {
     justify-content: center;
     height: 100%;
     width: 300px;
     right: 0;
-    background-color: palegreen;
+    left: 0;
     align-items: center;
 }
 
