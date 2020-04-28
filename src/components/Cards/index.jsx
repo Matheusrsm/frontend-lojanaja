@@ -44,13 +44,8 @@ export default function Cards({ produto }) {
       return null;
     }
     // salvar aleração na quantidade aqui
-    const token = localStorage.getItem('accessToken');
 
-    await api.put(`product/${product_code}`, { quantity: card.value }, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    await api.put(`product/${product_code}`, { quantity: card.value });
 
     card.setAttribute('disabled', 'disabled');
     btn.innerHTML = 'Editar';

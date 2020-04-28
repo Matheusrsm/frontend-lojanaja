@@ -28,7 +28,8 @@ export default class CriarProduto extends Component {
               value: 0
             },
           },
-          fileName: ""
+          fileName: "",
+          image: ""
         }
     }
     
@@ -67,40 +68,31 @@ export default class CriarProduto extends Component {
           }
         }
       });
+      this.setState({image: evento.target.files[0]})
       
-      try {
-        this.setState({ fileName: evento.target.files[0].name })
-      }
-      catch {
-  
-      }
+      this.setState({ fileName: evento.target.files[0].name })
+    
     }
     
     enviarManipulador = async (event) => {
         event.preventDefault();
         
-        const token = localStorage.getItem('accessToken')
+        //const token = localStorage.getItem('accessToken')
 
         const formData = new FormData()
-        formData.append('file', this.state.product.productImage)
-        formData.append('product_code', this.state.product.productCode)
-        formData.append('name', this.state.product.productName)
-        formData.append('category', this.state.product.productCategory)
-        formData.append('price', this.state.product.productPrice)
-        formData.append('quantity', this.state.product.productQuantity)
+        formData.append('image', this.state.image)
+        formData.append('product_code', this.state.product.productCode.value)
+        formData.append('name', this.state.product.productName.value)
+        formData.append('category', this.state.product.productCategory.value)
+        formData.append('price', this.state.product.productPrice.value)
+        formData.append('quantity', this.state.product.productQuantity.value)
         
-        console.log(this.state.product.productImage)
-        
-        const prod = await api({
-            method: 'POST',
-            url: 'product',
+        const config = {
             headers: {
-                Authorization: `Bearer ${token}`
-            },
-            data: formData
-        })
-
-        console.dir(prod);
+                'content-type': 'multipart/form-data'
+            }
+        }
+        await api.post('product', formData, config)
     }
     
     render() {
@@ -117,7 +109,7 @@ export default class CriarProduto extends Component {
             <div >
               <h5 className="label">Imagem</h5>
               <label id="labelImage" for="productImage" className="productImage">{this.state.fileName !== "" ? this.state.fileName : ""}</label>
-              <input id="productImage" type="file" name="productImage" value={this.state.productImage} onChange={this.manipuladorImagem} alt="d"></input>
+              <input id="productImage" type="file" name="productImage" onChange={this.manipuladorImagem} alt="d"></input>
             </div>
             <div>
               <label for="productName">Nome</label>
