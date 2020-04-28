@@ -115,7 +115,7 @@ export default class CriarProduto extends Component {
               <input id="code" type="text" name="productCode" value={this.state.productCode} onChange={this.manipulador}></input>
             </div> 
             <div >
-              <h7 className="label">Imagem</h7>
+              <h5 className="label">Imagem</h5>
               <label id="labelImage" for="productImage" className="productImage">{this.state.fileName !== "" ? this.state.fileName : ""}</label>
               <input id="productImage" type="file" name="productImage" value={this.state.productImage} onChange={this.manipuladorImagem} alt="d"></input>
             </div>

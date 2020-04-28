@@ -7,7 +7,3 @@
     grid-gap: 20px;
     list-style: none;
 }
-
-#botaoExcluir {
-    background-image: url('../../assets/trash.svg');
-}
