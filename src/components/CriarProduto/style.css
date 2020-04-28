@@ -1,3 +1,7 @@
+input select {
+  background-color: white;
+}
+
 .container-novo-produto {
     display: flex;
     justify-content: center;
@@ -11,7 +15,6 @@
     right: 0;
     background-color: palegreen;
     align-items: center;
-    justify-content: center;
   }
   
   #rightsidebar h2 {
@@ -105,7 +108,6 @@
   
   h4.label {
     padding-top: 15px;
-    color: var(--claro);
     font-weight: 500;
   }
   
@@ -113,11 +115,9 @@
     text-align: center;
     height: 2.4em;
     line-height: 1.7em;
-    background-color: var(--verde-claro);
     margin: 5px;
     border-radius: 10px;
     cursor: pointer;
-    color: var(--cinza);
     padding: 5px 10px;
     padding-left: 60px; 
     background-position: 7px 9px; 

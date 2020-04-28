@@ -45,14 +45,35 @@ export default class CriarProduto extends Component {
             }
           }
         });
-        console.log(evento.target.files, evento.target.files[0])
-        
+
         try {
           this.setState({ fileName: evento.target.files[0].name })
         }
         catch {
     
         }
+    }
+
+    manipuladorImagem = (evento) => {
+      const name = evento.target.name;
+      const value = evento.target.files[0];
+      
+      this.setState({
+        product: {
+          ...this.state.product,
+          [name]: {
+            ...this.state.product[name],
+            value
+          }
+        }
+      });
+      
+      try {
+        this.setState({ fileName: evento.target.files[0].name })
+      }
+      catch {
+  
+      }
     }
     
     enviarManipulador = async (event) => {
@@ -93,9 +114,9 @@ export default class CriarProduto extends Component {
               <input id="code" type="text" name="productCode" value={this.state.productCode} onChange={this.manipulador}></input>
             </div> 
             <div >
-              <h9 className="label">Imagem</h9>
+              <h5 className="label">Imagem</h5>
               <label for="productImage" className="productImage">{this.state.fileName !== "" ? this.state.fileName : ""}</label>
-              <input id="productImage" type="file" name="productImage" value={this.state.productImage} onChange={this.manipulador} alt="d"></input>
+              <input id="productImage" type="file" name="productImage" value={this.state.productImage} onChange={this.manipuladorImagem} alt="d"></input>
             </div>
             <div>
               <label for="productName">Nome</label>
